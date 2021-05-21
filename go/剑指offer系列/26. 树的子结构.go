@@ -1,32 +1,12 @@
 package main
 
 import "fmt"
+import "utils"
 
 func main() {
-	fmt.Println(isSubStructure(createTree([]int{1, 0, 1, -4, -3}), createTree([]int{1, -4})), false)
-	fmt.Println(isSubStructure(createTree([]int{10, 12, 6, 8, 3, 11}), createTree([]int{10, 12, 6, 8})), true)
-	fmt.Println(isSubStructure(createTree([]int{4, 2, 3, 4, 5, 6, 7, 8, 9}), createTree([]int{4, 8, 9})), true)
-}
-
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
-func createTree(nums []int) *TreeNode {
-	nodes := make([]*TreeNode, 0, 10)
-	for _, v := range nums {
-		nodes = append(nodes, &TreeNode{Val: v})
-	}
-	for i := 1; i < len(nodes); i++ {
-		if i%2 == 1 {
-			nodes[i/2].Left = nodes[i]
-		} else {
-			nodes[(i-1)/2].Right = nodes[i]
-		}
-	}
-	return nodes[0]
+	fmt.Println(isSubStructure(untils.CreateTree([]int{1, 0, 1, -4, -3}), untils.CreateTree([]int{1, -4})), false)
+	fmt.Println(isSubStructure(untils.CreateTree([]int{10, 12, 6, 8, 3, 11}), untils.CreateTree([]int{10, 12, 6, 8})), true)
+	fmt.Println(isSubStructure(untils.CreateTree([]int{4, 2, 3, 4, 5, 6, 7, 8, 9}), untils.CreateTree([]int{4, 8, 9})), true)
 }
 
 func isSubStructure(A *TreeNode, B *TreeNode) bool {
