@@ -29,7 +29,12 @@
 
 package main
 
+import "fmt"
+
 func main()  {
+	p, q := &TreeNode{Val:5}, &TreeNode{Val:1}
+	r := &TreeNode{3, p, q}
+	fmt.Println(lowestCommonAncestor(r, p, q))
 }
 
 type TreeNode struct {
@@ -47,6 +52,9 @@ func lowestCommonAncestor(root *TreeNode, p *TreeNode, q *TreeNode) *TreeNode {
 	}
 	left := lowestCommonAncestor(root.Left, p, q)
 	right := lowestCommonAncestor(root.Right, p, q)
+	if left != nil && right != nil {
+		return root
+	}
 	if left != nil {
 		return left
 	}
