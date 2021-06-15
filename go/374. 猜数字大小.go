@@ -64,20 +64,6 @@ func guessNumber(n int) int {
 	})
 }
 
-func guessNumber2(n int) int {
-	var fn func(i int) int
-	fn = func(i int) int {
-		ans := guess(i)
-		if ans == 0 {
-			return i
-		} else if ans == 1 {
-			return guessNumber(i+1)
-		} else {
-			return guessNumber((n-i)/2+i)
-		}
-	}
-	return fn(n)
-}
 
 func guess(num int) int {
 	switch {
