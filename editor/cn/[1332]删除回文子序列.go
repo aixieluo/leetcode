@@ -44,17 +44,17 @@
 //
 // Related Topics 双指针 字符串 👍 80 👎 0
 
-
 package leetcode
 
 //leetcode submit region begin(Prohibit modification and deletion)
 func removePalindromeSub(s string) int {
-	left, right := 0, len(s) -1
-	for ;left < right; left,right = left+1,right-1 {
+	left, right := 0, len(s)-1
+	for ; left < right; left, right = left+1, right-1 {
 		if s[left] != s[right] {
 			return 2
 		}
 	}
 	return 1
 }
+
 //leetcode submit region end(Prohibit modification and deletion)
