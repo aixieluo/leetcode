@@ -65,6 +65,7 @@ func (this *OrderedStream) Insert(idKey int, value string) []string {
 			this.ptr++
 		}
 	}
+	return ss
 }
 
 /**
