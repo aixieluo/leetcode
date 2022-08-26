@@ -24,23 +24,33 @@
 
 package main
 
-func main()  {
+import "sort"
+
+func main() {
 
 }
 
 func search(nums []int, target int) int {
 	l := len(nums)
 	ans := -1
-	for i,j := 0, l-1; i<= j && j < l;{
-		mid := (i+j) >> 1
+	for i, j := 0, l-1; i <= j && j < l; {
+		mid := (i + j) >> 1
 		if nums[mid] > target {
 			j = mid - 1
 		} else if nums[mid] < target {
-			i = mid +1
+			i = mid + 1
 		} else {
 			ans = mid
 			break
 		}
 	}
 	return ans
+}
+
+func search2(nums []int, target int) int {
+	x := sort.SearchInts(nums, target)
+	if x < len(nums) && nums[x] == target {
+		return x
+	}
+	return -1
 }
